@@ -28,8 +28,10 @@ void utf8_char_free(utf8_char* ch)
 
 utf8_char** rd_utf8_str(unsigned char* buf,int size)
 {
-	int index = 0;
-	uint32_t item_size = 0;
+	int32_t index = 0;
+	int32_t item_size = 0;
+	int32_t item_index = 0;
+	utf8_char** utf8_str = NULL;
 	do {
 		int len = char_len(buf[index]);
 		index += len;
@@ -38,9 +40,8 @@ utf8_char** rd_utf8_str(unsigned char* buf,int size)
 				break;
 	}while(1);
 
-	utf8_char** utf8_str = (utf8_char**)malloc(sizeof(utf8_char*) * (item_size+1));
+	utf8_str = (utf8_char**)malloc(sizeof(utf8_char*) * (item_size+1));
 	index = 0;
-	int item_index = 0;
 	do {
 		int len = char_len(buf[index]);
 		utf8_char* ch = alloc_char(len);
