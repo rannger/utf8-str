@@ -6,9 +6,9 @@
 int char_len(unsigned char ch)
 {
 		int ret = 1;
-		if (ch>>5 == 0x6) ret = 2;
-		if (ch>>4 == 0xe) ret = 3;
-		if (ch>>3 == 0x1e) ret = 4;
+		if ((ch>>5) == 0x6) ret = 2;
+		if ((ch>>4) == 0xe) ret = 3;
+		if ((ch>>3) == 0x1e) ret = 4;
 
 		return ret;
 }
